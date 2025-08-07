@@ -1,0 +1,15 @@
+{
+  "license": "UNLICENSED",
+  "dependencies": {
+    "concurrently": "^9.2.0"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
+  },
+  "scripts": {
+    "dev": "concurrently \"cd ./server && yarn start\" \"cd ./client && yarn dev\"",
+    "tscheck:client": "tsc -p ./client/tsconfig.json",
+    "tscheck:server": "tsc -p ./server/tsconfig.json",
+    "test": "yarn tscheck:client && yarn tscheck:server"
+  }
+}
