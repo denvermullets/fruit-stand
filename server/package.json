@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "knex": "^3.1.0",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.2.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "scripts": {
+    "build": "yarn install && tsc",
+    "start:prod": "yarn db:migrate && node build/index.js",
+    "start": "nodemon ./src/index.ts",
+    "dev": "nodemon ./src/index.ts",
+    "knex": "./node_modules/.bin/knex --knexfile src/database/knexfile.ts",
+    "db:migrate": "yarn knex migrate:latest src/database/knexfile.ts",
+    "db:rollback": "yarn knex migrate:rollback src/database/knexfile.ts"
+  }
+}
