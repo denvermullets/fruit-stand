@@ -1,20 +1,13 @@
 import express, { NextFunction } from "express";
 import { Request, Response } from "express";
+import fruitRouter from "./routes/fruit.routes";
 const PORT = 3000;
 const app = express();
 
-app.get("/api/v1", (req: Request, res: Response) => {
-  const response = { hi: "this works" };
-  res.send(response);
-});
+// not /fruits ?_?
+app.use("/", fruitRouter);
 
-// not fruits ?_?
-app.get("/fruit", (req: Request, res: Response) => {
-  const response = { hi: "this works" };
-  res.send(response);
-});
-
-app.use((req: Request, res: Response, next: NextFunction) => {
+app.use((_req: Request, res: Response, _next: NextFunction) => {
   res.status(404).json({ error: "Are you lost buddy?" });
 });
 
