@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  /* --font-display: "Montserrat", serif; */
+  --color-mocha-bg: oklch(0.2221 0.0182 305.13);
+  --color-card-bg: oklch(0.2806 0.0202 280.93);
+  --color-stroke-dark: oklch(0.3958 0.0304 279.94);
+  --color-fruit-orange: oklch(0.8373 0.1188 66.56);
+}

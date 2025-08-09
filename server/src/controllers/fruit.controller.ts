@@ -6,7 +6,7 @@ const fruitController = {
     try {
       const { in_season, color, name } = req.query;
 
-      // not sure if it's worth pointing out we're forcing it to be the right type or not
+      // i've been burned by this in the past so forcing the type to be correct here
       const inSeason = in_season === "true" ? true : in_season === "false" ? false : undefined;
 
       const fruits = await fruitModel.findFruits({
