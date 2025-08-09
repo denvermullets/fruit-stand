@@ -2,7 +2,7 @@ type ErrorDisplayProps = {
   error: Error | null;
 };
 
-const ErrorDisplay: React.FC<ErrorDisplayProps> = ({ error }) => {
+const ErrorDisplay = ({ error }: ErrorDisplayProps) => {
   if (!error) return;
 
   return (

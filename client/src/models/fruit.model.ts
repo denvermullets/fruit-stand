@@ -1,7 +1,11 @@
-export type FruitResponse = {
+type Fruit = {
   name: string;
   colors: string[];
   in_season: boolean;
+};
+
+export type FruitResponse = {
+  value: Fruit[];
 };
 
 export type FruitsSearchParams = {
@@ -10,7 +14,7 @@ export type FruitsSearchParams = {
   in_season?: boolean;
 };
 
-export const fetchFruits = async (params?: FruitsSearchParams): Promise<FruitResponse[]> => {
+export const fetchFruits = async (params?: FruitsSearchParams): Promise<FruitResponse> => {
   let url = "http://localhost:3000/fruit";
 
   if (params) {
