@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { fetchFruits, FruitsSearchParams } from "../models/fruit.model";
-import ErrorDisplay from "../components/shared/errorDisplay";
+import ErrorDisplay from "../components/shared/ErrorDisplay";
 import LoadingDisplay from "../components/shared/LoadingDisplay";
 
 export const Route = createFileRoute("/")({
