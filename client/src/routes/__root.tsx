@@ -5,7 +5,7 @@ import { SvgIcon } from "../components/shared/SvgIcon";
 export const Route = createRootRoute({
   component: () => (
     <>
-      <div className="p-6 max-w-2xl mx-auto just flex-row flex items-center gap-4">
+      <div className="p-6 max-w-3xl mx-auto just flex-row flex items-center gap-4">
         <Link to="/" className="[&.active]:font-bold text-resist-blue-500">
           <div className="flex flex-row text-white text-xl font-bold items-center gap-2">
             <SvgIcon name={"fruitstand"} color={"#feba72"} x={32} y={32} /> Fruit Stand

@@ -1,9 +1,25 @@
-import { AppleIcon, FruitStandIcon } from "./icons";
+import {
+  AppleIcon,
+  BananaIcon,
+  BerryIcon,
+  CoconutIcon,
+  FruitStandIcon,
+  GrapesIcon,
+  LimeIcon,
+  OrangeIcon,
+  WatermelonIcon,
+} from "./icons";
 
 export const iconMap = {
   apple: AppleIcon,
   fruitstand: FruitStandIcon,
-  // watermelon: WatermelonIcon,
+  grapes: GrapesIcon,
+  blueberry: BerryIcon,
+  orange: OrangeIcon,
+  coconut: CoconutIcon,
+  watermelon: WatermelonIcon,
+  lime: LimeIcon,
+  banana: BananaIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;

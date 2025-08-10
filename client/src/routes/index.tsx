@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { fetchFruits, FruitsSearchParams } from "../models/fruit.model";
 import ErrorDisplay from "../components/shared/ErrorDisplay";
 import LoadingDisplay from "../components/shared/LoadingDisplay";
-import SegmentedControl from "../components/shared/SegmentedControl";
+import FruitCard from "../components/FruitCard";
 
 export const Route = createFileRoute("/")({
   validateSearch: (search: Record<string, unknown>): FruitsSearchParams => {
@@ -29,5 +29,11 @@ function IndexComponent() {
   if (isLoading) return <LoadingDisplay />;
   if (error) return <ErrorDisplay error={error} />;
 
-  return <div className="p-6 max-w-2xl mx-auto">HIHHI</div>;
+  return (
+    <div className="p-6 max-w-3xl mx-auto flex flex-wrap gap-2">
+      {data?.value.map((fruit) => {
+        return <FruitCard name={fruit.name} colors={fruit.colors} key={fruit.name} />;
+      })}
+    </div>
+  );
 }
