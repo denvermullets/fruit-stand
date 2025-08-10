@@ -54,6 +54,13 @@ const fruitModel = {
 
     return fruits;
   },
+  findUniqueColors: async (): Promise<string[]> => {
+    const result = await db("fruit_colors")
+      .select(db.raw("array_agg(DISTINCT color ORDER BY color) as colors"))
+      .whereNotNull("color");
+
+    return result[0]?.colors || [];
+  },
 };
 
 export default fruitModel;

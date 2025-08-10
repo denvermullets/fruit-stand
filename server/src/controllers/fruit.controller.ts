@@ -23,6 +23,16 @@ const fruitController = {
       res.status(500).json({ error: err.message });
     }
   },
+  getColors: async (req: Request, res: Response, _next: NextFunction) => {
+    try {
+      const fruitColors = await fruitModel.findUniqueColors();
+
+      res.status(200).json({ value: fruitColors });
+    } catch (error) {
+      const err = error as Error;
+      res.status(500).json({ error: err.message });
+    }
+  },
 };
 
 export default fruitController;

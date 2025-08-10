@@ -45,7 +45,7 @@ const SearchInput = ({ placeholder = "Search", currentValue = "" }: SearchInputP
             value={inputValue}
             onChange={handleInputChange}
             onKeyDown={handleKeyPress}
-            className="w-full pl-12 pr-16 py-3 bg-mocha-bg border border-stroke-dark rounded-xl text-fruit-orange placeholder-fruit-text focus:outline-none focus:ring-2 focus:ring-fruit-orange focus:border-transparent transition-all duration-200"
+            className="w-full pl-12 pr-16 py-2.5 bg-mocha-bg border border-stroke-dark rounded-xl text-fruit-orange placeholder-fruit-text focus:outline-none focus:ring-2 focus:ring-fruit-orange focus:border-transparent transition-all duration-200"
           />
         </div>
       </form>

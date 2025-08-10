@@ -3,7 +3,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { fetchFruits, FruitsSearchParams } from "../models/fruit.model";
 import ErrorDisplay from "../components/shared/ErrorDisplay";
 import LoadingDisplay from "../components/shared/LoadingDisplay";
-import SegmentedControl from "../components/SegmentedControl";
 
 export const Route = createFileRoute("/fruitData")({
   validateSearch: (search: Record<string, unknown>): FruitsSearchParams => {
@@ -31,7 +30,6 @@ function AboutComponent() {
 
   return (
     <div className="p-6 max-w-2xl mx-auto">
-      <SegmentedControl options={["In Season", "Out of Season"]} />
       <h1 className="text-2xl font-bold mb-4 text-gray-800">Fruits Data</h1>
       {(name || color || in_season) && (
         <div className="mb-4 p-3 bg-blue-50 rounded border">

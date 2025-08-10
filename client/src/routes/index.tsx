@@ -7,6 +7,8 @@ import FruitCard from "../components/FruitCard";
 import SearchInput from "../components/SearchInput";
 import SegmentedControl from "../components/SegmentedControl";
 import SearchProvider from "../providers/SearchContextProvider";
+import ColorDropdown from "../components/ColorDropDown";
+import { fetchFruitColors } from "../models/fruitColor.model";
 
 export const Route = createFileRoute("/")({
   validateSearch: (search: Record<string, unknown>): FruitsSearchParams => {
@@ -29,8 +31,20 @@ function IndexComponent() {
     gcTime: 10 * 60 * 1000,
   });
 
+  const {
+    data: colorsData,
+    isLoading: colorsLoading,
+    error: colorsError,
+  } = useQuery({
+    queryKey: ["fruitColors"],
+    queryFn: fetchFruitColors,
+    staleTime: 5 * 60 * 1000,
+    gcTime: 10 * 60 * 1000,
+  });
+
   if (isLoading) return <LoadingDisplay />;
   if (error) return <ErrorDisplay error={error} />;
+  if (colorsError) console.error("Unable to fetch Fruit Colors");
 
   return (
     <SearchProvider>
@@ -38,17 +52,18 @@ function IndexComponent() {
         <div className="flex flex-row max-w-3xl gap-4 px-6">
           <SearchInput placeholder="Search by name" currentValue={name || ""} />
           <SegmentedControl options={["In Season", "Out of Season"]} currentValue={in_season} />
-          {/* demo placeholders */}
-          <select name="cars" id="cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-          </select>
+          <ColorDropdown isLoading={colorsLoading} colors={colorsData} currentValue={color} />
         </div>
         <div className="p-6 max-w-3xl mx-auto flex flex-wrap gap-4 justify-center">
           {data?.value.map((fruit) => {
-            return <FruitCard name={fruit.name} colors={fruit.colors} key={fruit.name} />;
+            return (
+              <FruitCard
+                name={fruit.name}
+                colors={fruit.colors}
+                key={fruit.name}
+                in_season={fruit.in_season}
+              />
+            );
           })}
         </div>
       </div>

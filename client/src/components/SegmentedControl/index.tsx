@@ -37,7 +37,7 @@ const SegmentedControl = ({ options, currentValue }: SegmentedControlProps) => {
   };
 
   return (
-    <div className="inline-flex p-1 bg-mocha-bg rounded-xl border border-stroke-dark w-fit">
+    <div className="inline-flex p-1 bg-mocha-bg rounded-xl border border-stroke-dark w-fit h-auto">
       {options.map((label) => (
         <button
           key={label}
