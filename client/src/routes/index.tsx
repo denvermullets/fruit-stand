@@ -43,12 +43,6 @@ function IndexComponent() {
           <option value="mercedes">Mercedes</option>
           <option value="audi">Audi</option>
         </select>
-        <select name="cars" id="cars">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-        </select>
       </div>
       <div className="p-6 max-w-3xl mx-auto flex flex-wrap gap-4">
         {data?.value.map((fruit) => {
