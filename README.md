@@ -2,6 +2,9 @@
 
 this repo was quickly thrown together using my CLI tool [Mullets-Stack](https://github.com/denvermullets/mullets-stack)
 
+https://github.com/user-attachments/assets/0b41769b-4c81-4469-b6a0-60db74604bfd
+
+
 ## Tech Stack
 
 - React
