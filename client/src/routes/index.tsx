@@ -4,6 +4,7 @@ import { fetchFruits, FruitsSearchParams } from "../models/fruit.model";
 import ErrorDisplay from "../components/shared/ErrorDisplay";
 import LoadingDisplay from "../components/shared/LoadingDisplay";
 import FruitCard from "../components/FruitCard";
+import SearchInput from "../components/SearchInput";
 
 export const Route = createFileRoute("/")({
   validateSearch: (search: Record<string, unknown>): FruitsSearchParams => {
@@ -30,10 +31,18 @@ function IndexComponent() {
   if (error) return <ErrorDisplay error={error} />;
 
   return (
-    <div className="p-6 max-w-3xl mx-auto flex flex-wrap gap-2">
-      {data?.value.map((fruit) => {
-        return <FruitCard name={fruit.name} colors={fruit.colors} key={fruit.name} />;
-      })}
+    <div className="flex flex-col max-w-3xl mx-auto">
+      <div className="flex flex-row max-w-3xl gap-4 px-6">
+        <SearchInput />
+        <SearchInput />
+        <SearchInput />
+        <SearchInput />
+      </div>
+      <div className="p-6 max-w-3xl mx-auto flex flex-wrap gap-4">
+        {data?.value.map((fruit) => {
+          return <FruitCard name={fruit.name} colors={fruit.colors} key={fruit.name} />;
+        })}
+      </div>
     </div>
   );
 }
