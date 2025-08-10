@@ -6,7 +6,6 @@ import { Knex } from "knex";
 
 const DB = process.env.DATABASE_URL;
 if (!DB) throw new Error("missing DB URL");
-console.log("DB", DB);
 
 interface IKnexConfig {
   [key: string]: Knex.Config;

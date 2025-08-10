@@ -1,20 +1,35 @@
-import { useState } from "react";
+import { useSearchContext } from "../../hooks/useSearchContext";
 
 type SegmentedControlProps = {
   options: string[];
+  currentValue?: boolean;
 };
 
-const SegmentedControl = ({ options }: SegmentedControlProps) => {
-  // we're using a string vs a boolean here so that we can deselect as well
-  const [selected, setSelected] = useState<string | null>(null);
+const SegmentedControl = ({ options, currentValue }: SegmentedControlProps) => {
+  // since we're triggering a state refresh this is controlled by param state
+  const { updateSearch, clearSearch } = useSearchContext();
+
+  const getSelectedLabel = (value?: boolean) => {
+    if (value === true) return "In Season";
+    if (value === false) return "Out of Season";
+    return null;
+  };
+
+  const selected = getSelectedLabel(currentValue);
 
   const handleClick = (label: string) => {
-    return selected === label ? setSelected(null) : setSelected(label);
+    if (selected === label) {
+      // If clicking the same button, clear the selection
+      clearSearch("in_season");
+    } else {
+      // Update with new selection
+      updateSearch("in_season", label === "In Season" ? true : false);
+    }
   };
 
   const getButtonStyles = (isSelected: boolean) => {
     const baseStyles =
-      "relative px-4 py-2 text-sm font-medium rounded-[8px] transition-all duration-300 whitespace-nowrap";
+      "relative px-4 py-2 text-sm font-medium rounded-[8px] transition-all duration-300 whitespace-nowrap cursor-pointer";
     const selectedStyles = "bg-fruit-orange text-mocha-bg shadow-inner";
     const unselectedStyles = "text-fruit-text hover:text-white";
 

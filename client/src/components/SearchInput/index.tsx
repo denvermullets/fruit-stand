@@ -1,19 +1,15 @@
-import { useNavigate } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { SearchIcon } from "../shared/icons";
+import { useSearchContext } from "../../hooks/useSearchContext";
 
 interface SearchInputProps {
   placeholder?: string;
-  searchParam: "name";
   currentValue?: string;
 }
 
-const SearchInput = ({
-  placeholder = "Search",
-  searchParam,
-  currentValue = "",
-}: SearchInputProps) => {
-  const navigate = useNavigate();
+const SearchInput = ({ placeholder = "Search", currentValue = "" }: SearchInputProps) => {
+  // const navigate = useNavigate();
+  const { updateSearch } = useSearchContext();
   const [inputValue, setInputValue] = useState(currentValue);
 
   useEffect(() => {
@@ -27,23 +23,13 @@ const SearchInput = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    updateSearch();
+    updateSearch("name", inputValue);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
-      updateSearch();
+      updateSearch("name", inputValue);
     }
-  };
-
-  const updateSearch = () => {
-    navigate({
-      to: "/",
-      search: (prev) => ({
-        ...prev,
-        [searchParam]: inputValue.trim() || undefined,
-      }),
-    });
   };
 
   return (
