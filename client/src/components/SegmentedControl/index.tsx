@@ -12,16 +12,16 @@ const SegmentedControl = ({ options }: SegmentedControlProps) => {
   };
 
   return (
-    <div className="inline-flex p-1 bg-[#1c1c1e] rounded-full border border-gray-700">
+    <div className="inline-flex p-1 bg-mocha-bg rounded-full border border-stroke-dark w-fit">
       {options.map((label) => (
         <button
           key={label}
           onClick={() => handleClick(label)}
-          className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300
+          className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap
             ${
               selected === label
                 ? "bg-gradient-to-br from-yellow-500/20 to-yellow-300/10 text-white shadow-inner"
-                : "text-gray-400 hover:text-white"
+                : "text-fruit-text hover:text-white"
             }`}
         >
           {label}

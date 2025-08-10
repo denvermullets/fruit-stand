@@ -5,6 +5,7 @@ import ErrorDisplay from "../components/shared/ErrorDisplay";
 import LoadingDisplay from "../components/shared/LoadingDisplay";
 import FruitCard from "../components/FruitCard";
 import SearchInput from "../components/SearchInput";
+import SegmentedControl from "../components/SegmentedControl";
 
 export const Route = createFileRoute("/")({
   validateSearch: (search: Record<string, unknown>): FruitsSearchParams => {
@@ -33,10 +34,21 @@ function IndexComponent() {
   return (
     <div className="flex flex-col max-w-3xl mx-auto">
       <div className="flex flex-row max-w-3xl gap-4 px-6">
-        <SearchInput />
-        <SearchInput />
-        <SearchInput />
-        <SearchInput />
+        <SearchInput placeholder="Search by name" searchParam="name" currentValue={name || ""} />
+        <SegmentedControl options={["In Season", "Out of Season"]} />
+        {/* demo placeholders */}
+        <select name="cars" id="cars">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+        <select name="cars" id="cars">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
       </div>
       <div className="p-6 max-w-3xl mx-auto flex flex-wrap gap-4">
         {data?.value.map((fruit) => {
