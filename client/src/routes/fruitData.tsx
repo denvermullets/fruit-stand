@@ -30,7 +30,7 @@ function AboutComponent() {
 
   return (
     <div className="p-6 max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4 text-gray-800">Fruits Data</h1>
+      <h1 className="text-2xl font-bold mb-4 text-fruit-orange">Fruits Data</h1>
       {(name || color || in_season) && (
         <div className="mb-4 p-3 bg-blue-50 rounded border">
           <span className="text-sm text-blue-700">
@@ -47,7 +47,7 @@ function AboutComponent() {
       </div>
       {Array.isArray(data?.value) && data?.value.length > 0 && (
         <div className="mt-6">
-          <h2 className="text-lg font-semibold mb-3 text-gray-700">
+          <h2 className="text-lg font-semibold mb-3 text-fruit-orange">
             Fruits List ({data.value.length} items):
           </h2>
           <ul className="space-y-2">
