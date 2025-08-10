@@ -2,7 +2,7 @@ import { FC } from "react";
 import { DefaultIcon, iconMap, IconName } from "./iconMap";
 
 interface IconProps {
-  name: IconName;
+  name: string;
   color?: string;
   x?: number;
   y?: number;
