@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { fetchFruits, FruitsSearchParams } from "../models/fruit.model";
 import ErrorDisplay from "../components/shared/ErrorDisplay";
 import LoadingDisplay from "../components/shared/LoadingDisplay";
-import SegmentedControl from "../components/shared/SegmentedControl";
+import SegmentedControl from "../components/SegmentedControl";
 
 export const Route = createFileRoute("/fruitData")({
   validateSearch: (search: Record<string, unknown>): FruitsSearchParams => {
